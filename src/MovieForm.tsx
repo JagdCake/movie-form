@@ -69,9 +69,29 @@ const MovieForm: FC = (): ReactElement => {
                 type="text"
                 id="genre"
                 name="genre"
+                list="genres"
                 onChange={formik.handleChange}
                 value={formik.values.genre}
             />
+            <datalist id="genres">
+                <option value="Drama" />
+                <option value="Horror" />
+                <option value="Action" />
+                <option value="Thriller" />
+                <option value="Comedy" />
+                <option value="Crime" />
+                <option value="Mystery" />
+                <option value="Adventure" />
+                <option value="Fantasy" />
+                <option value="Biography" />
+                <option value="Sci-Fi" />
+                <option value="Romance" />
+                <option value="War" />
+                <option value="Musical" />
+                <option value="Animation" />
+                <option value="Family" />
+                <option value="Western" />
+            </datalist>
 
                 <button
                     className="block text-white pt-12"

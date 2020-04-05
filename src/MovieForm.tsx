@@ -16,6 +16,7 @@ const MovieForm: FC = (): ReactElement => {
             topActors: ['', ''],
             myRating: 'Great Onion',
             watchedOn: '',
+            discussion: '',
         },
         onSubmit: (values) => {
             console.log(JSON.stringify(values, null, 4));
@@ -150,6 +151,15 @@ const MovieForm: FC = (): ReactElement => {
                 name="watchedOn"
                 onChange={formik.handleChange}
                 value={formik.values.watchedOn}
+            />
+
+        <label className="block text-white pt-6" htmlFor="discussion">Link to discussion / reviews</label>
+            <input
+                type="text"
+                id="discussion"
+                name="discussion"
+                onChange={formik.handleChange}
+                value={formik.values.discussion}
             />
 
                 <button

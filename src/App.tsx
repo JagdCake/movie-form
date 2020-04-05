@@ -1,6 +1,7 @@
 import React from 'react';
+import { FC, ReactElement } from 'react';
 
-function App() {
+const App: FC = (): ReactElement => {
     return (
         <main>
         </main>

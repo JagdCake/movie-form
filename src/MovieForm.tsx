@@ -15,7 +15,7 @@ const MovieForm: FC = (): ReactElement => {
 
     return (
         <form onSubmit={formik.handleSubmit}>
-            <label className="block" htmlFor="imdbId">IMDb ID</label>
+            <label className="block text-white" htmlFor="imdbId">IMDb ID</label>
             <input
                 type="text"
                 id="imdbId"
@@ -24,7 +24,7 @@ const MovieForm: FC = (): ReactElement => {
                 value={formik.values.imdbId}
             />
 
-            <label className="block" htmlFor="language">Primary language</label>
+            <label className="block text-white" htmlFor="language">Primary language</label>
             <input
                 type="text"
                 id="language"
@@ -33,7 +33,7 @@ const MovieForm: FC = (): ReactElement => {
                 value={formik.values.language}
             />
 
-            <button className="block" type="submit">Submit</button>
+            <button className="block text-white" type="submit">Submit</button>
         </form>
     )
 };

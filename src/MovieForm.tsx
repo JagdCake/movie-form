@@ -13,7 +13,18 @@ const MovieForm: FC = (): ReactElement => {
     });
 
     return (
-        <form></form>
+        <form onSubmit={formik.handleSubmit}>
+            <label className="block" htmlFor="language">Primary language</label>
+            <input
+                type="text"
+                id="language"
+                name="language"
+                onChange={formik.handleChange}
+                value={formik.values.language}
+            />
+
+            <button className="block" type="submit">Submit</button>
+        </form>
     )
 };
 

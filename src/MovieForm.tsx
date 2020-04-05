@@ -8,6 +8,7 @@ const MovieForm: FC = (): ReactElement => {
             imdbId: '',
             language: 'English',
             title: '',
+            yearOfRelease: new Date().getFullYear() - 1,
         },
         onSubmit: (values) => {
             console.log(JSON.stringify(values, null, 4));
@@ -41,6 +42,15 @@ const MovieForm: FC = (): ReactElement => {
                 name="language"
                 onChange={formik.handleChange}
                 value={formik.values.language}
+            />
+
+            <label className="block text-white pt-6" htmlFor="yearOfRelease">Year</label>
+            <input
+                type="number"
+                id="yearOfRelease"
+                name="yearOfRelease"
+                onChange={formik.handleChange}
+                value={formik.values.yearOfRelease}
             />
 
                 <button

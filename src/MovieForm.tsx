@@ -14,6 +14,7 @@ const MovieForm: FC = (): ReactElement => {
             imdbRating: 6.0,
             directors: [''],
             topActors: ['', ''],
+            myRating: 'Great Onion',
         },
         onSubmit: (values) => {
             console.log(JSON.stringify(values, null, 4));
@@ -125,6 +126,21 @@ const MovieForm: FC = (): ReactElement => {
                 onChange={formik.handleChange}
                 value={formik.values.topActors}
             />
+
+            <label className="block text-white pt-6" htmlFor="myRating">My rating</label>
+            <select
+                id="myRating"
+                name="myRating"
+                onChange={formik.handleChange}
+                value={formik.values.myRating}
+            >
+                <option value="Bad Eggplant">Bad Eggplant</option>
+                <option value="Decent Carrot">Decent Carrot</option>
+                <option value="Good Tomato">Good Tomato</option>
+                <option value="Great Onion">Great Onion</option>
+                <option value="Amazing Savory">Amazing Savory</option>
+                <option value="Sublime Lettuce">Sublime Lettuce</option>
+            </select>
 
                 <button
                     className="block text-white pt-12"

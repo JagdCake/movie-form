@@ -9,6 +9,7 @@ const MovieForm: FC = (): ReactElement => {
             language: 'English',
             title: '',
             yearOfRelease: new Date().getFullYear() - 1,
+            runtime: 116,
         },
         onSubmit: (values) => {
             console.log(JSON.stringify(values, null, 4));
@@ -51,6 +52,15 @@ const MovieForm: FC = (): ReactElement => {
                 name="yearOfRelease"
                 onChange={formik.handleChange}
                 value={formik.values.yearOfRelease}
+            />
+
+            <label className="block text-white pt-6" htmlFor="runtime">Runtime (minutes)</label>
+            <input
+                type="number"
+                id="runtime"
+                name="runtime"
+                onChange={formik.handleChange}
+                value={formik.values.runtime}
             />
 
                 <button

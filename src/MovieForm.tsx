@@ -11,6 +11,7 @@ const MovieForm: FC = (): ReactElement => {
             yearOfRelease: new Date().getFullYear() - 1,
             runtime: 116,
             genre: 'Drama',
+            imdbRating: 6.0,
         },
         onSubmit: (values) => {
             console.log(JSON.stringify(values, null, 4));
@@ -92,6 +93,18 @@ const MovieForm: FC = (): ReactElement => {
                 <option value="Family" />
                 <option value="Western" />
             </datalist>
+
+            <label className="block text-white pt-6" htmlFor="imdbRating">IMDb rating</label>
+            <input
+                type="number"
+                id="imdbRating"
+                name="imdbRating"
+                step="0.1"
+                min="0.0"
+                max="10.0"
+                onChange={formik.handleChange}
+                value={formik.values.imdbRating}
+            />
 
                 <button
                     className="block text-white pt-12"

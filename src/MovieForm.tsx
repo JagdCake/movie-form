@@ -12,6 +12,7 @@ const MovieForm: FC = (): ReactElement => {
             runtime: 116,
             genre: 'Drama',
             imdbRating: 6.0,
+            directors: [''],
         },
         onSubmit: (values) => {
             console.log(JSON.stringify(values, null, 4));
@@ -104,6 +105,15 @@ const MovieForm: FC = (): ReactElement => {
                 max="10.0"
                 onChange={formik.handleChange}
                 value={formik.values.imdbRating}
+            />
+
+            <label className="block text-white pt-6" htmlFor="directors">Director(s) (max. 3)</label>
+            <input
+                type="text"
+                id="directors"
+                name="directors"
+                onChange={formik.handleChange}
+                value={formik.values.directors}
             />
 
                 <button

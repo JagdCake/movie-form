@@ -13,6 +13,7 @@ const MovieForm: FC = (): ReactElement => {
             genre: 'Drama',
             imdbRating: 6.0,
             directors: [''],
+            topActors: ['', ''],
         },
         onSubmit: (values) => {
             console.log(JSON.stringify(values, null, 4));
@@ -114,6 +115,15 @@ const MovieForm: FC = (): ReactElement => {
                 name="directors"
                 onChange={formik.handleChange}
                 value={formik.values.directors}
+            />
+
+            <label className="block text-white pt-6" htmlFor="topActors">Top two actors</label>
+            <input
+                type="text"
+                id="topActors"
+                name="topActors"
+                onChange={formik.handleChange}
+                value={formik.values.topActors}
             />
 
                 <button

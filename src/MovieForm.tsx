@@ -15,6 +15,7 @@ const MovieForm: FC = (): ReactElement => {
             directors: [''],
             topActors: ['', ''],
             myRating: 'Great Onion',
+            watchedOn: '',
         },
         onSubmit: (values) => {
             console.log(JSON.stringify(values, null, 4));
@@ -141,6 +142,15 @@ const MovieForm: FC = (): ReactElement => {
                 <option value="Amazing Savory">Amazing Savory</option>
                 <option value="Sublime Lettuce">Sublime Lettuce</option>
             </select>
+
+            <label className="block text-white pt-6" htmlFor="watchedOn">Watched on (date)</label>
+            <input
+                type="text"
+                id="watchedOn"
+                name="watchedOn"
+                onChange={formik.handleChange}
+                value={formik.values.watchedOn}
+            />
 
                 <button
                     className="block text-white pt-12"

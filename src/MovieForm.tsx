@@ -33,7 +33,12 @@ const MovieForm: FC = (): ReactElement => {
                 value={formik.values.language}
             />
 
-            <button className="block text-white" type="submit">Submit</button>
+                <button
+                    className="block text-white pt-12"
+                    type="submit"
+                >
+                    Submit
+                </button>
         </form>
     )
 };

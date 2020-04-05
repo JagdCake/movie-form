@@ -4,7 +4,7 @@ import MovieForm from './MovieForm';
 
 const App: FC = (): ReactElement => {
     return (
-        <main>
+        <main className="w-1/4 m-auto">
             <MovieForm />
         </main>
     );

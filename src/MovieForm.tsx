@@ -10,6 +10,7 @@ const MovieForm: FC = (): ReactElement => {
             title: '',
             yearOfRelease: new Date().getFullYear() - 1,
             runtime: 116,
+            genre: 'Drama',
         },
         onSubmit: (values) => {
             console.log(JSON.stringify(values, null, 4));
@@ -61,6 +62,15 @@ const MovieForm: FC = (): ReactElement => {
                 name="runtime"
                 onChange={formik.handleChange}
                 value={formik.values.runtime}
+            />
+
+            <label className="block text-white pt-6" htmlFor="genre">Primary genre</label>
+            <input
+                type="text"
+                id="genre"
+                name="genre"
+                onChange={formik.handleChange}
+                value={formik.values.genre}
             />
 
                 <button

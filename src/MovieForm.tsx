@@ -5,6 +5,7 @@ import { useFormik } from 'formik';
 const MovieForm: FC = (): ReactElement => {
     const formik = useFormik({
         initialValues: {
+            imdbId: '',
             language: 'English',
         },
         onSubmit: (values) => {
@@ -14,6 +15,15 @@ const MovieForm: FC = (): ReactElement => {
 
     return (
         <form onSubmit={formik.handleSubmit}>
+            <label className="block" htmlFor="imdbId">IMDb ID</label>
+            <input
+                type="text"
+                id="imdbId"
+                name="imdbId"
+                onChange={formik.handleChange}
+                value={formik.values.imdbId}
+            />
+
             <label className="block" htmlFor="language">Primary language</label>
             <input
                 type="text"

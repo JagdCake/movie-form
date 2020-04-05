@@ -7,6 +7,7 @@ const MovieForm: FC = (): ReactElement => {
         initialValues: {
             imdbId: '',
             language: 'English',
+            title: '',
         },
         onSubmit: (values) => {
             console.log(JSON.stringify(values, null, 4));
@@ -22,6 +23,15 @@ const MovieForm: FC = (): ReactElement => {
                 name="imdbId"
                 onChange={formik.handleChange}
                 value={formik.values.imdbId}
+            />
+
+            <label className="block text-white pt-6" htmlFor="title">Title</label>
+            <input
+                type="text"
+                id="title"
+                name="title"
+                onChange={formik.handleChange}
+                value={formik.values.title}
             />
 
             <label className="block text-white pt-6" htmlFor="language">Primary language</label>

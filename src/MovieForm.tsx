@@ -27,7 +27,20 @@ const MovieForm: FC = (): ReactElement => {
                 variables: {
                     input: {
                         clientMutationId: `newMovie${values.imdbId}`,
-                        movie: values
+                        movie: {
+                            imdbId: values.imdbId,
+                            language: values.language,
+                            title: values.title,
+                            yearOfRelease: values.yearOfRelease,
+                            runtime: values.runtime,
+                            genre: values.genre,
+                            imdbRating: values.imdbRating,
+                            directors: values.directors.split(','),
+                            topActors: values.topActors.split(','),
+                            myRating: values.myRating,
+                            watchedOn: values.watchedOn,
+                            discussion: values.discussion,
+                        }
                     }
                 }
             });

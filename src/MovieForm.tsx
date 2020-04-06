@@ -1,8 +1,12 @@
 import React from 'react';
 import { FC, ReactElement } from 'react';
 import { useFormik } from 'formik';
+import { useMutation } from '@apollo/react-hooks';
+import { ADD_MOVIE } from './graphql/mutations';
 
 const MovieForm: FC = (): ReactElement => {
+    const [addMovie] = useMutation(ADD_MOVIE);
+
     const formik = useFormik({
         initialValues: {
             imdbId: '',

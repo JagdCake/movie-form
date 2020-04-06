@@ -23,7 +23,15 @@ const MovieForm: FC = (): ReactElement => {
             discussion: '',
         },
         onSubmit: (values) => {
-            console.log(JSON.stringify(values, null, 4));
+            addMovie({
+                variables: {
+                    input: {
+                        clientMutationId: `newMovie${values.imdbId}`,
+                        movie: values
+                    }
+                }
+            });
+            formik.setSubmitting(false);
         },
     });
 

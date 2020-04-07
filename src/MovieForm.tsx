@@ -10,6 +10,19 @@ interface ErrorMessageProps {
     display: boolean | '' | undefined;
 }
 
+const ErrorMessage: FC<ErrorMessageProps> = ({
+    message = '',
+    display = false,
+}: ErrorMessageProps): ReactElement | null => {
+    if (display) {
+        return (
+            <p className="w-48 text-red-500 p-4">{message}</p>
+        );
+    }
+
+    return null;
+}
+
 export interface MovieFormProps {
     imdbId: string;
     language: string;

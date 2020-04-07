@@ -37,7 +37,8 @@
     "build:css": "postcss src/styles/tailwind.css -o src/styles/index.css",
     "watch:css": "postcss src/styles/tailwind.css -o src/styles/index.css --watch",
     "react-scripts:start": "sleep 5 && react-scripts start",
-    "react-scripts:build": "react-scripts build"
+    "react-scripts:build": "react-scripts build",
+    "start-gql-server": "npx postgraphile -c postgres://postgres:@localhost/movies --watch -o"
   },
   "eslintConfig": {
     "extends": "react-app"

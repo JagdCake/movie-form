@@ -68,7 +68,7 @@ const MovieForm: FC = (): ReactElement => {
             validate={validate}
         >
             {(props) => (
-                <form onSubmit={props.handleSubmit}>
+                <form onSubmit={props.handleSubmit} className="w-1/2 m-auto">
                     <label className="block text-white pt-6" htmlFor="imdbId">IMDb ID</label>
                     <input
                         type="text"

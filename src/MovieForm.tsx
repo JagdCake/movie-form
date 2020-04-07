@@ -4,6 +4,21 @@ import { Formik } from 'formik';
 import { useMutation } from '@apollo/react-hooks';
 import { ADD_MOVIE } from './graphql/mutations';
 
+export interface MovieFormProps {
+    imdbId: string;
+    language: string;
+    title: string;
+    yearOfRelease: number;
+    runtime: number;
+    genre: string;
+    imdbRating: number;
+    directors: string;
+    topActors: string;
+    myRating: string;
+    watchedOn: string;
+    discussion: string;
+};
+
 const MovieForm: FC = (): ReactElement => {
     const [addMovie] = useMutation(ADD_MOVIE);
 

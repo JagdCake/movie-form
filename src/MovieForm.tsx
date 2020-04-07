@@ -3,6 +3,7 @@ import { FC, ReactElement } from 'react';
 import { Formik } from 'formik';
 import { useMutation } from '@apollo/react-hooks';
 import { ADD_MOVIE } from './graphql/mutations';
+import validate from './validations';
 
 export interface MovieFormProps {
     imdbId: string;
@@ -64,6 +65,7 @@ const MovieForm: FC = (): ReactElement => {
                 });
                 actions.setSubmitting(false);
             }}
+            validate={validate}
         >
             {(props) => (
                 <form onSubmit={props.handleSubmit}>

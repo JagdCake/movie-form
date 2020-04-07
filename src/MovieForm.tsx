@@ -85,15 +85,24 @@ const MovieForm: FC = (): ReactElement => {
             }}
             validate={validate}
         >
-            {(props) => (
-                <form onSubmit={props.handleSubmit} className="w-1/2 m-auto">
+            {(
+                {
+                    values,
+                    handleSubmit,
+                    handleChange,
+                    errors,
+                    isSubmitting,
+                    setSubmitting
+                }
+            ) => (
+                <form onSubmit={handleSubmit} className="w-1/2 m-auto">
                     <label className="block text-white pt-6" htmlFor="imdbId">IMDb ID</label>
                     <input
                         type="text"
                         id="imdbId"
                         name="imdbId"
-                        onChange={props.handleChange}
-                        value={props.values.imdbId}
+                        onChange={handleChange}
+                        value={values.imdbId}
                         required={true}
                     />
 
@@ -102,8 +111,8 @@ const MovieForm: FC = (): ReactElement => {
                         type="text"
                         id="title"
                         name="title"
-                        onChange={props.handleChange}
-                        value={props.values.title}
+                        onChange={handleChange}
+                        value={values.title}
                         required={true}
                     />
 
@@ -112,8 +121,8 @@ const MovieForm: FC = (): ReactElement => {
                         type="text"
                         id="language"
                         name="language"
-                        onChange={props.handleChange}
-                        value={props.values.language}
+                        onChange={handleChange}
+                        value={values.language}
                         required={true}
                     />
 
@@ -122,8 +131,8 @@ const MovieForm: FC = (): ReactElement => {
                         type="number"
                         id="yearOfRelease"
                         name="yearOfRelease"
-                        onChange={props.handleChange}
-                        value={props.values.yearOfRelease}
+                        onChange={handleChange}
+                        value={values.yearOfRelease}
                         required={true}
                     />
 
@@ -132,8 +141,8 @@ const MovieForm: FC = (): ReactElement => {
                         type="number"
                         id="runtime"
                         name="runtime"
-                        onChange={props.handleChange}
-                        value={props.values.runtime}
+                        onChange={handleChange}
+                        value={values.runtime}
                         required={true}
                     />
 
@@ -143,8 +152,8 @@ const MovieForm: FC = (): ReactElement => {
                         id="genre"
                         name="genre"
                         list="genres"
-                        onChange={props.handleChange}
-                        value={props.values.genre}
+                        onChange={handleChange}
+                        value={values.genre}
                         required={true}
                     />
                     <datalist id="genres">
@@ -175,8 +184,8 @@ const MovieForm: FC = (): ReactElement => {
                         step="0.1"
                         min="0.0"
                         max="10.0"
-                        onChange={props.handleChange}
-                        value={props.values.imdbRating}
+                        onChange={handleChange}
+                        value={values.imdbRating}
                         required={true}
                     />
 
@@ -185,8 +194,8 @@ const MovieForm: FC = (): ReactElement => {
                         type="text"
                         id="directors"
                         name="directors"
-                        onChange={props.handleChange}
-                        value={props.values.directors}
+                        onChange={handleChange}
+                        value={values.directors}
                         required={true}
                     />
 
@@ -195,8 +204,8 @@ const MovieForm: FC = (): ReactElement => {
                         type="text"
                         id="topActors"
                         name="topActors"
-                        onChange={props.handleChange}
-                        value={props.values.topActors}
+                        onChange={handleChange}
+                        value={values.topActors}
                         required={true}
                     />
 
@@ -204,8 +213,8 @@ const MovieForm: FC = (): ReactElement => {
                     <select
                         id="myRating"
                         name="myRating"
-                        onChange={props.handleChange}
-                        value={props.values.myRating}
+                        onChange={handleChange}
+                        value={values.myRating}
                         required={true}
                     >
                         <option value="Bad Eggplant">Bad Eggplant</option>
@@ -221,8 +230,8 @@ const MovieForm: FC = (): ReactElement => {
                         type="text"
                         id="watchedOn"
                         name="watchedOn"
-                        onChange={props.handleChange}
-                        value={props.values.watchedOn}
+                        onChange={handleChange}
+                        value={values.watchedOn}
                         required={true}
                     />
 
@@ -231,15 +240,15 @@ const MovieForm: FC = (): ReactElement => {
                         type="text"
                         id="discussion"
                         name="discussion"
-                        onChange={props.handleChange}
-                        value={props.values.discussion}
+                        onChange={handleChange}
+                        value={values.discussion}
                         required={true}
                     />
 
                     <button
                         className="block text-white pt-12"
                         type="submit"
-                        onClick={() => props.setSubmitting(true)}
+                        onClick={() => setSubmitting(true)}
                     >
                         Submit
                     </button>

@@ -189,25 +189,32 @@ const MovieForm: FC = (): ReactElement => {
                         required={true}
                     />
 
-                    <label className="block text-white pt-6" htmlFor="directors">Director(s) (max. 3)</label>
-                    <input
-                        type="text"
-                        id="directors"
-                        name="directors"
-                        onChange={handleChange}
-                        value={values.directors}
-                        required={true}
-                    />
+                    <fieldset className="border border-white p-2 mt-6">
+                        <legend className="text-white p-2">
+                            <span>Names of directors(s) and actors.</span>
+                            <strong className="block text-sm">(separate the names with commas)</strong>
+                        </legend>
 
-                    <label className="block text-white pt-6" htmlFor="topActors">Top two actors</label>
-                    <input
-                        type="text"
-                        id="topActors"
-                        name="topActors"
-                        onChange={handleChange}
-                        value={values.topActors}
-                        required={true}
-                    />
+                        <label className="text-white" htmlFor="directors">Director(s) (max. 3)</label>
+                        <input
+                            type="text"
+                            id="directors"
+                            name="directors"
+                            onChange={handleChange}
+                            value={values.directors}
+                            required={true}
+                        />
+
+                        <label className="block text-white pt-6" htmlFor="topActors">Top two actors</label>
+                        <input
+                            type="text"
+                            id="topActors"
+                            name="topActors"
+                            onChange={handleChange}
+                            value={values.topActors}
+                            required={true}
+                        />
+                    </fieldset>
 
                     <label className="block text-white pt-6" htmlFor="myRating">My rating</label>
                     <select

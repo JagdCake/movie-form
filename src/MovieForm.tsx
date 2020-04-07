@@ -5,6 +5,11 @@ import { useMutation } from '@apollo/react-hooks';
 import { ADD_MOVIE } from './graphql/mutations';
 import validate from './validations';
 
+interface ErrorMessageProps {
+    message: string | undefined;
+    display: boolean | '' | undefined;
+}
+
 export interface MovieFormProps {
     imdbId: string;
     language: string;

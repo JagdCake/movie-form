@@ -59,6 +59,7 @@ const MovieForm: FC = (): ReactElement => {
                         name="imdbId"
                         onChange={props.handleChange}
                         value={props.values.imdbId}
+                        required={true}
                     />
 
                     <label className="block text-white pt-6" htmlFor="title">Title</label>
@@ -68,6 +69,7 @@ const MovieForm: FC = (): ReactElement => {
                         name="title"
                         onChange={props.handleChange}
                         value={props.values.title}
+                        required={true}
                     />
 
                     <label className="block text-white pt-6" htmlFor="language">Primary language</label>
@@ -77,6 +79,7 @@ const MovieForm: FC = (): ReactElement => {
                         name="language"
                         onChange={props.handleChange}
                         value={props.values.language}
+                        required={true}
                     />
 
                     <label className="block text-white pt-6" htmlFor="yearOfRelease">Year</label>
@@ -86,6 +89,7 @@ const MovieForm: FC = (): ReactElement => {
                         name="yearOfRelease"
                         onChange={props.handleChange}
                         value={props.values.yearOfRelease}
+                        required={true}
                     />
 
                     <label className="block text-white pt-6" htmlFor="runtime">Runtime (minutes)</label>
@@ -95,6 +99,7 @@ const MovieForm: FC = (): ReactElement => {
                         name="runtime"
                         onChange={props.handleChange}
                         value={props.values.runtime}
+                        required={true}
                     />
 
                     <label className="block text-white pt-6" htmlFor="genre">Primary genre</label>
@@ -105,6 +110,7 @@ const MovieForm: FC = (): ReactElement => {
                         list="genres"
                         onChange={props.handleChange}
                         value={props.values.genre}
+                        required={true}
                     />
                     <datalist id="genres">
                         <option value="Drama" />
@@ -136,6 +142,7 @@ const MovieForm: FC = (): ReactElement => {
                         max="10.0"
                         onChange={props.handleChange}
                         value={props.values.imdbRating}
+                        required={true}
                     />
 
                     <label className="block text-white pt-6" htmlFor="directors">Director(s) (max. 3)</label>
@@ -145,6 +152,7 @@ const MovieForm: FC = (): ReactElement => {
                         name="directors"
                         onChange={props.handleChange}
                         value={props.values.directors}
+                        required={true}
                     />
 
                     <label className="block text-white pt-6" htmlFor="topActors">Top two actors</label>
@@ -154,6 +162,7 @@ const MovieForm: FC = (): ReactElement => {
                         name="topActors"
                         onChange={props.handleChange}
                         value={props.values.topActors}
+                        required={true}
                     />
 
                     <label className="block text-white pt-6" htmlFor="myRating">My rating</label>
@@ -162,6 +171,7 @@ const MovieForm: FC = (): ReactElement => {
                         name="myRating"
                         onChange={props.handleChange}
                         value={props.values.myRating}
+                        required={true}
                     >
                         <option value="Bad Eggplant">Bad Eggplant</option>
                         <option value="Decent Carrot">Decent Carrot</option>
@@ -178,6 +188,7 @@ const MovieForm: FC = (): ReactElement => {
                         name="watchedOn"
                         onChange={props.handleChange}
                         value={props.values.watchedOn}
+                        required={true}
                     />
 
                     <label className="block text-white pt-6" htmlFor="discussion">Link to discussion / reviews</label>
@@ -187,6 +198,7 @@ const MovieForm: FC = (): ReactElement => {
                         name="discussion"
                         onChange={props.handleChange}
                         value={props.values.discussion}
+                        required={true}
                     />
 
                     <button

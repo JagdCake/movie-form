@@ -94,7 +94,7 @@ const MovieForm: FC = (): ReactElement => {
                     touched
                 }
             ) => (
-                <form onSubmit={handleSubmit} className="w-3/5 m-auto text-lg">
+                <form onSubmit={handleSubmit} className="w-3/5 m-auto text-lg py-8">
                     <label className="block text-white pt-6" htmlFor="imdbId">IMDb ID</label>
                     <input
                         type="text"

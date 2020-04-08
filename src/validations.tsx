@@ -24,11 +24,30 @@ const maxThreeDirectors = (directors: string): string => {
     return '';
 };
 
+const maxTwoActors = (actors: string): string => {
+    const commas = /,/g;
+    const errorTooFew = 'Too few names: You must enter 2 names.';
+    const errorTooMany = 'Too many names: You can enter two at most.';
+
+    const numberOfCommas = (actors.match(commas) || []).length;
+
+    switch (numberOfCommas) {
+        case 0:
+            return errorTooFew;
+        case 1:
+            return '';
+        default:
+            return errorTooMany;
+    };
+};
+
+
 const validate = (values: MovieFormProps) => {
     const errors: any = {};
 
     errors.imdbId = imdbIdFormat(values.imdbId);
     errors.directors = maxThreeDirectors(values.directors);
+    errors.topActors = maxTwoActors(values.topActors);
 
     return errors;
 };

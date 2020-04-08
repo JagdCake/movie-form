@@ -255,7 +255,6 @@ const MovieForm: FC = (): ReactElement => {
                     <button
                         className="block text-white pt-12"
                         type="submit"
-                        onClick={() => setSubmitting(true)}
                     >
                         Submit
                     </button>

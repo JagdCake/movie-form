@@ -49,6 +49,16 @@ const validate = (values: MovieFormProps) => {
     errors.directors = maxThreeDirectors(values.directors);
     errors.topActors = maxTwoActors(values.topActors);
 
+    // without this check the form data can't be submitted; the
+    // validation functions always return a value, even if there is no
+    // error (''), so the error object is never empty which makes Formik
+    // think there are errors and the submission handler doesn't get
+    // called
+    const noErrors = Object.values(errors).every((error) => error === '');
+    if (noErrors) {
+        return {};
+    }
+
     return errors;
 };
 

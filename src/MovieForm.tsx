@@ -91,8 +91,6 @@ const MovieForm: FC = (): ReactElement => {
                     handleSubmit,
                     handleChange,
                     errors,
-                    isSubmitting,
-                    setSubmitting
                 }
             ) => (
                 <form onSubmit={handleSubmit} className="w-1/2 m-auto">

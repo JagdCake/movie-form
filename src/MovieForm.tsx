@@ -91,6 +91,7 @@ const MovieForm: FC = (): ReactElement => {
                     handleSubmit,
                     handleChange,
                     errors,
+                    touched
                 }
             ) => (
                 <form onSubmit={handleSubmit} className="w-1/2 m-auto">
@@ -103,6 +104,7 @@ const MovieForm: FC = (): ReactElement => {
                         value={values.imdbId}
                         required={true}
                     />
+                    <ErrorMessage message={errors.imdbId} display={errors.imdbId && touched.imdbId} />
 
                     <label className="block text-white pt-6" htmlFor="title">Title</label>
                     <input
@@ -202,6 +204,7 @@ const MovieForm: FC = (): ReactElement => {
                             value={values.directors}
                             required={true}
                         />
+                        <ErrorMessage message={errors.directors} display={errors.directors && touched.directors} />
 
                         <label className="block text-white pt-6" htmlFor="topActors">Top two actors</label>
                         <input
@@ -212,6 +215,7 @@ const MovieForm: FC = (): ReactElement => {
                             value={values.topActors}
                             required={true}
                         />
+                        <ErrorMessage message={errors.topActors} display={errors.topActors && touched.topActors} />
                     </fieldset>
 
                     <label className="block text-white pt-6" htmlFor="myRating">My rating</label>

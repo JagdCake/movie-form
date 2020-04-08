@@ -11,10 +11,24 @@ const imdbIdFormat = (imdbId: string): string => {
     return '';
 };
 
+const maxThreeDirectors = (directors: string): string => {
+    // not good, but will have to do for now
+    const commas = /,/g;
+    const error = 'Too many names: You can enter 3 at most.';
+
+    const numberOfCommas = (directors.match(commas) || []).length;
+    if (numberOfCommas >= 3) {
+        return error;
+    }
+
+    return '';
+};
+
 const validate = (values: MovieFormProps) => {
     const errors: any = {};
 
     errors.imdbId = imdbIdFormat(values.imdbId);
+    errors.directors = maxThreeDirectors(values.directors);
 
     return errors;
 };

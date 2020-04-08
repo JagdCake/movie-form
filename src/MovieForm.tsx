@@ -255,7 +255,7 @@ const MovieForm: FC = (): ReactElement => {
                     />
 
                     <button
-                        className="block text-white my-12 p-2 mx-auto"
+                        className="block text-black my-12 p-2 mx-auto rounded-lg bg-red-500"
                         type="submit"
                     >
                         Submit

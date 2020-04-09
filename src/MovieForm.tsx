@@ -56,7 +56,7 @@ const MovieForm: FC = (): ReactElement => {
                     directors: '',
                     topActors: '',
                     myRating: 'Great Onion',
-                    watchedOn: '',
+                    watchedOn: new Date().toISOString().split('T')[0],
                     discussion: '',
                 }
             }

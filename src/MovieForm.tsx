@@ -4,6 +4,7 @@ import { Formik } from 'formik';
 import { useMutation } from '@apollo/react-hooks';
 import { ADD_MOVIE } from './graphql/mutations';
 import validate from './validations';
+import { Redirect } from 'react-router-dom';
 
 interface ErrorMessageProps {
     message: string | undefined;
@@ -92,7 +93,8 @@ const MovieForm: FC = (): ReactElement => {
                     handleChange,
                     errors,
                     touched,
-                    isSubmitting
+                    isSubmitting,
+                    submitCount
                 }
             ) => (
                 <form onSubmit={handleSubmit} className="w-3/5 m-auto text-lg py-8">
@@ -262,6 +264,7 @@ const MovieForm: FC = (): ReactElement => {
                     >
                         Submit
                     </button>
+                    {submitCount === 1 && <Redirect to="/movies" />}
                 </form>
             )}
         </Formik>

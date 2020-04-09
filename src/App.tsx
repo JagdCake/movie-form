@@ -1,12 +1,23 @@
 import React from 'react';
 import { FC, ReactElement } from 'react';
-import MovieForm from './MovieForm';
+import {
+    BrowserRouter as Router,
+    Switch,
+    Route
+} from 'react-router-dom';
+import MovieIndex from './MovieIndex';
 
 const App: FC = (): ReactElement => {
     return (
-        <main className="w-1/4 m-auto">
-            <MovieForm />
-        </main>
+        <Router>
+            <main className="w-1/4 m-auto">
+                <Switch>
+                    <Route path="/movies">
+                        <MovieIndex />
+                    </Route>
+                </Switch>
+            </main>
+        </Router>
     );
 }
 

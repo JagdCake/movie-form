@@ -3,7 +3,8 @@ import { FC, ReactElement } from 'react';
 import {
     BrowserRouter as Router,
     Switch,
-    Route
+    Route,
+    Redirect
 } from 'react-router-dom';
 import MovieIndex from './MovieIndex';
 
@@ -14,6 +15,9 @@ const App: FC = (): ReactElement => {
                 <Switch>
                     <Route path="/movies">
                         <MovieIndex />
+                    </Route>
+                    <Route exact path="/">
+                        <Redirect to="/movies" />
                     </Route>
                 </Switch>
             </main>

@@ -91,7 +91,8 @@ const MovieForm: FC = (): ReactElement => {
                     handleSubmit,
                     handleChange,
                     errors,
-                    touched
+                    touched,
+                    isSubmitting
                 }
             ) => (
                 <form onSubmit={handleSubmit} className="w-3/5 m-auto text-lg py-8">
@@ -257,6 +258,7 @@ const MovieForm: FC = (): ReactElement => {
                     <button
                         className="block text-black my-12 p-2 mx-auto rounded-lg bg-red-500 transform hover:scale-125 focus:scale-125"
                         type="submit"
+                        disabled={isSubmitting}
                     >
                         Submit
                     </button>

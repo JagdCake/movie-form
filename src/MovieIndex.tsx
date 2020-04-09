@@ -19,7 +19,7 @@ const MovieIndex: FC = (): ReactElement => {
     const movies: ReactElement[] = movieList.map((movie: Movie, index: number) => {
         return (
             <li key={index}>
-                <span>#{movie.id}</span>
+                <span className="text-white">#{movie.id}</span>
             </li>
         );
     });

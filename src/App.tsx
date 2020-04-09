@@ -8,6 +8,7 @@ import {
     Redirect
 } from 'react-router-dom';
 import MovieIndex from './MovieIndex';
+import Header from './Header';
 
 const App: FC = (): ReactElement => {
     return (
@@ -18,6 +19,7 @@ const App: FC = (): ReactElement => {
                         <MovieForm />
                     </Route>
                     <Route path="/movies">
+                        <Header />
                         <MovieIndex />
                     </Route>
                     <Route exact path="/">

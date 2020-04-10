@@ -18,13 +18,16 @@ const MovieIndex: FC = (): ReactElement => {
 
     const movies: ReactElement[] = movieList.map((movie: Movie, index: number) => {
         return (
-            <li key={index} className="py-4">
+            <li key={index} id={movie.id.toString()} className="py-4">
                 <a
                     href={`https://www.imdb.com/title/${movie.imdbId}`}
                     className="text-white text-2xl font-black"
                 >
                     {movie.title}
                     <sup> {movie.yearOfRelease}</sup>
+                </a>
+                <a href={`#${movie.id}`}>
+                    <span role="img" aria-label="link icon"> 🔗</span>
                 </a>
             </li>
         );

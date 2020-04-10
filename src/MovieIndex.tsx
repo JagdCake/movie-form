@@ -18,7 +18,7 @@ const MovieIndex: FC = (): ReactElement => {
 
     const movies: ReactElement[] = movieList.map((movie: Movie, index: number) => {
         return (
-            <li key={index}>
+            <li key={index} className="py-4">
                 <a
                     href={`https://www.imdb.com/title/${movie.imdbId}`}
                     className="text-white text-2xl font-black"

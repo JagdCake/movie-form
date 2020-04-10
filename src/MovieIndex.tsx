@@ -19,7 +19,13 @@ const MovieIndex: FC = (): ReactElement => {
     const movies: ReactElement[] = movieList.map((movie: Movie, index: number) => {
         return (
             <li key={index}>
-                <span className="text-white">#{movie.id}</span>
+                <a
+                    href={`https://www.imdb.com/title/${movie.imdbId}`}
+                    className="text-white text-2xl font-black"
+                >
+                    {movie.title}
+                    <sup> {movie.yearOfRelease}</sup>
+                </a>
             </li>
         );
     });

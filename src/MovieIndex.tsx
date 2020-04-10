@@ -25,7 +25,7 @@ const MovieIndex: FC = (): ReactElement => {
     });
 
     return (
-        <article className="text-white">
+        <article className="text-white text-lg">
             <ul className="list-disc list-outside text-red-500">
                 {movies}
             </ul>

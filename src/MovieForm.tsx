@@ -18,7 +18,7 @@ const ErrorMessage: FC<ErrorMessageProps> = ({
 }: ErrorMessageProps): ReactElement | null => {
     if (display) {
         return (
-            <p className="w-48 text-red-500 p-4">{message}</p>
+            <p className="w-48 text-red p-4">{message}</p>
         );
     }
 
@@ -279,7 +279,7 @@ const MovieForm: FC = (): ReactElement => {
                     />
 
                     <button
-                        className="block text-black my-12 p-2 mx-auto rounded-lg bg-red-500 transform hover:scale-125 focus:scale-125"
+                        className="block text-black my-12 p-2 mx-auto rounded-lg bg-red transform hover:scale-125 focus:scale-125"
                         type="submit"
                         disabled={isSubmitting}
                     >

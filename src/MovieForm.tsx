@@ -4,7 +4,7 @@ import { Formik } from 'formik';
 import { useMutation } from '@apollo/react-hooks';
 import { ADD_MOVIE } from './graphql/mutations';
 import validate from './validations';
-import { Redirect } from 'react-router-dom';
+import { Redirect, Link } from 'react-router-dom';
 
 interface ErrorMessageProps {
     message: string | undefined;
@@ -265,6 +265,7 @@ const MovieForm: FC = (): ReactElement => {
                         Submit
                     </button>
                     {submitCount === 1 && <Redirect to="/movies" />}
+                    <Link to="/movies" className="text-4xl text-white">&larr; Go back</Link>
                 </form>
             )}
         </Formik>

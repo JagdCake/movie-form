@@ -18,7 +18,7 @@ const MovieIndex: FC = (): ReactElement => {
 
     const movies: ReactElement[] = movieList.map((movie: Movie, index: number) => {
         return (
-            <li key={index} id={movie.id.toString()} className="py-4">
+            <li key={index} id={movie.id.toString()} className="py-4 group">
                 <a
                     href={`https://www.imdb.com/title/${movie.imdbId}`}
                     className="text-white text-2xl font-black"
@@ -26,7 +26,7 @@ const MovieIndex: FC = (): ReactElement => {
                     {movie.title}
                     <sup> {movie.yearOfRelease}</sup>
                 </a>
-                <a href={`#${movie.id}`}>
+                <a href={`#${movie.id}`} className="hidden group-hover:inline">
                     <span role="img" aria-label="link icon"> 🔗</span>
                 </a>
             </li>

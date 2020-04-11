@@ -6,6 +6,10 @@
 
 @tailwind utilities;
 
+form :not(button) {
+    padding: 0.4rem;
+}
+
 form :not(button):focus {
     padding: 0.5rem;
 }

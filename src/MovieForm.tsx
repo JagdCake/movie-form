@@ -4,7 +4,8 @@ import { Formik } from 'formik';
 import { useMutation } from '@apollo/react-hooks';
 import { ADD_MOVIE } from './graphql/mutations';
 import validate from './validations';
-import { Redirect, Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
+import { useState, useEffect } from 'react';
 
 interface ErrorMessageProps {
     message: string | undefined;
@@ -41,6 +42,24 @@ export interface MovieFormProps {
 
 const MovieForm: FC = (): ReactElement => {
     const [addMovie] = useMutation(ADD_MOVIE);
+    const [formSubmitted, setFormSubmitted] = useState(false);
+
+    useEffect(() => {
+        // prevents warning that React can't perform a state update on
+        // unmounted component
+        // Source: https://stackoverflow.com/questions/53949393/cant-perform-a-react-state-update-on-an-unmounted-component/60907638#60907638
+        let isMounted = true;
+
+        if (isMounted && formSubmitted) {
+            // open the movie list in the same tab
+            window.open('/movies', '_self');
+        }
+
+        return () => {
+            // effect cleanup
+            isMounted = false;
+        };
+    });
 
     return (
         <Formik
@@ -83,6 +102,9 @@ const MovieForm: FC = (): ReactElement => {
                     }
                 });
                 actions.setSubmitting(false);
+                setTimeout(() => {
+                    setFormSubmitted(true);
+                }, 500);
             }}
             validate={validate}
         >
@@ -93,8 +115,7 @@ const MovieForm: FC = (): ReactElement => {
                     handleChange,
                     errors,
                     touched,
-                    isSubmitting,
-                    submitCount
+                    isSubmitting
                 }
             ) => (
                 <form onSubmit={handleSubmit} className="w-3/5 m-auto text-lg py-8">
@@ -264,7 +285,6 @@ const MovieForm: FC = (): ReactElement => {
                     >
                         Submit
                     </button>
-                    {submitCount === 1 && <Redirect to="/movies" />}
                     <Link to="/movies" className="text-4xl text-white">&larr; Go back</Link>
                 </form>
             )}

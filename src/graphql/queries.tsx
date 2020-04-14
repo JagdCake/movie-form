@@ -23,3 +23,22 @@ export const MOVIE_LIST = gql`
         }
     }
 `;
+
+export const MOVIE_BY_ID = gql`
+    query MovieById($movieId: Int!) {
+        movieById(id: $movieId) {
+            imdbId
+            language
+            title
+            yearOfRelease
+            runtime
+            genre
+            imdbRating
+            directors
+            topActors
+            myRating
+            watchedOn
+            discussion
+        }
+    }
+`;

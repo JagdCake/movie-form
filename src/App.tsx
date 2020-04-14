@@ -1,6 +1,6 @@
 import React from 'react';
 import { FC, ReactElement } from 'react';
-import MovieForm from './MovieForm';
+import AddForm from './AddForm';
 import {
     BrowserRouter as Router,
     Switch,
@@ -16,7 +16,7 @@ const App: FC = (): ReactElement => {
             <main className="w-1/4 m-auto">
                 <Switch>
                     <Route path="/movies/add">
-                        <MovieForm />
+                        <AddForm />
                     </Route>
                     <Route path="/movies">
                         <Header />

@@ -9,7 +9,7 @@ display movies on https://movies.jagdcake.com).
 - uses [PostGraphile](https://www.graphile.org/postgraphile/) to create
   a GraphQL API server pointing at a PostgreSQL database
 - uses [Apollo Client](https://www.apollographql.com/docs/react/) to
-  update the database
+  update and query the database
 
 ### First Time Setup
 

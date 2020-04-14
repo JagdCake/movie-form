@@ -25,7 +25,7 @@ const ErrorMessage: FC<ErrorMessageProps> = ({
     return null;
 }
 
-export interface MovieFormProps {
+export interface MovieFormValues {
     imdbId: string;
     language: string;
     title: string;

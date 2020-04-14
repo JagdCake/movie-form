@@ -1,4 +1,4 @@
-import { MovieFormProps } from './MovieForm';
+import { MovieFormValues } from './MovieForm';
 
 const imdbIdFormat = (imdbId: string): string => {
     const format = /^tt\d{7,8}$/;
@@ -42,7 +42,7 @@ const maxTwoActors = (actors: string): string => {
 };
 
 
-const validate = (values: MovieFormProps) => {
+const validate = (values: MovieFormValues) => {
     const errors: any = {};
 
     errors.imdbId = imdbIdFormat(values.imdbId);

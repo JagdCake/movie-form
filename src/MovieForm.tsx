@@ -4,6 +4,7 @@ import { Formik } from 'formik';
 import { useMutation } from '@apollo/react-hooks';
 import { ADD_MOVIE } from './graphql/mutations';
 import validate from './validations';
+import { FormikProps } from 'formik';
 import { Link } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 
@@ -40,27 +41,16 @@ export interface MovieFormValues {
     discussion: string;
 };
 
-const MovieForm: FC = (): ReactElement => {
-    const [addMovie] = useMutation(ADD_MOVIE);
-    const [formSubmitted, setFormSubmitted] = useState(false);
+type MovieFormProps = FormikProps<MovieFormValues>;
 
-    useEffect(() => {
-        // prevents warning that React can't perform a state update on
-        // unmounted component
-        // Source: https://stackoverflow.com/questions/53949393/cant-perform-a-react-state-update-on-an-unmounted-component/60907638#60907638
-        let isMounted = true;
-
-        if (isMounted && formSubmitted) {
-            // open the movie list in the same tab
-            window.open('/movies', '_self');
-        }
-
-        return () => {
-            // effect cleanup
-            isMounted = false;
-        };
-    });
-
+const MovieForm: FC<MovieFormProps> = ({
+    values,
+    handleSubmit,
+    handleChange,
+    errors,
+    touched,
+    isSubmitting
+}: MovieFormProps): ReactElement => {
     return (
         <Formik
             initialValues={

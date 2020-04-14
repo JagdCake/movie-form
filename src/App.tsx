@@ -1,6 +1,7 @@
 import React from 'react';
 import { FC, ReactElement } from 'react';
 import AddForm from './AddForm';
+import UpdateForm from './UpdateForm';
 import {
     BrowserRouter as Router,
     Switch,
@@ -15,6 +16,10 @@ const App: FC = (): ReactElement => {
         <Router>
             <main className="w-1/4 m-auto">
                 <Switch>
+                    <Route exact path="/movies/:id/update" render={({ match }) => (
+                            <UpdateForm idOfMovieToUpdate={+match.params.id} />
+                        )}
+                    />
                     <Route path="/movies/add">
                         <AddForm />
                     </Route>

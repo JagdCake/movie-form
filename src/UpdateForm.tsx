@@ -95,11 +95,14 @@ const UpdateForm: FC<UpdateFormProp> = ({
                             discussion: values.discussion,
                         }
                     }
+                }).then(() => {
+                    actions.setSubmitting(false);
+                    setTimeout(() => {
+                        setFormSubmitted(true);
+                    }, 500);
+                }).catch((err) => {
+                    console.error(err);
                 });
-                actions.setSubmitting(false);
-                setTimeout(() => {
-                    setFormSubmitted(true);
-                }, 500);
             }}
             validate={validate}
         >

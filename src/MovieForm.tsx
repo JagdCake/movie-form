@@ -56,6 +56,7 @@ const MovieForm: FC<MovieFormProps> = ({
                 onChange={handleChange}
                 value={values.imdbId}
                 required={true}
+                autoFocus={true}
             />
             <ErrorMessage message={errors.imdbId} display={errors.imdbId && touched.imdbId} />
 

@@ -21,3 +21,11 @@ export const ADD_MOVIE = gql`
         }
     }
 `;
+
+export const UPDATE_MOVIE = gql`
+    mutation UpdateMovieById($id: Int!, $moviePatch: MoviePatch!) {
+        updateMovieById(input: {id: $id, moviePatch: $moviePatch}) {
+            clientMutationId
+         }
+    }
+`;

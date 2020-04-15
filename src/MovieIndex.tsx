@@ -3,6 +3,7 @@ import { FC, ReactElement } from 'react';
 import { useQuery } from '@apollo/react-hooks';
 import { MOVIE_LIST, Movie } from './graphql/queries';
 import QueryState from './QueryState';
+import { Link }  from 'react-router-dom';
 
 const MovieIndex: FC = (): ReactElement => {
     const { loading, error, data } = useQuery(MOVIE_LIST);
@@ -37,6 +38,12 @@ const MovieIndex: FC = (): ReactElement => {
                 <p className="text-white">
                     Here is a <a href={movie.discussion} className="underline">discussion</a> about it.
                 </p>
+                <Link
+                    to={`/movies/${movie.id.toString()}/update`}
+                    className="inline-block bg-red my-2 p-2 rounded-lg text-black"
+                >
+                    Edit
+                </Link>
             </li>
         );
     });

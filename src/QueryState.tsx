@@ -8,9 +8,9 @@ interface QueryStateProps {
 const QueryState: FC<QueryStateProps> = ({
     stateMessage,
 }: QueryStateProps): ReactElement => (
-    <div className="h-screen text-white text-2xl py-64 text-center">
+    <article className="h-screen text-white text-2xl py-64 text-center">
         {stateMessage}
-    </div>
+    </article>
 );
 
 export default QueryState;

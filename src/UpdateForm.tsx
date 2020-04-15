@@ -97,6 +97,9 @@ const UpdateForm: FC<UpdateFormProp> = ({
                     }
                 });
                 actions.setSubmitting(false);
+                setTimeout(() => {
+                    setFormSubmitted(true);
+                }, 500);
             }}
             validate={validate}
         >

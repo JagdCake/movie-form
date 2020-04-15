@@ -103,8 +103,8 @@ const UpdateForm: FC<UpdateFormProp> = ({
             }}
             validate={validate}
         >
-                {(props) => (
-                    <MovieForm {...props} />
+            {(props) => (
+                <MovieForm {...props} />
             )}
         </Formik>
     );

@@ -7,6 +7,7 @@ export interface Movie {
     imdbId: string;
     myRating: string;
     watchedOn: string;
+    discussion: string;
 };
 
 export const MOVIE_LIST = gql`
@@ -19,6 +20,7 @@ export const MOVIE_LIST = gql`
                 imdbId
                 myRating
                 watchedOn
+                discussion
             }
         }
     }

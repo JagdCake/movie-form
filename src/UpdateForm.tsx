@@ -6,6 +6,7 @@ import MovieForm from './MovieForm';
 import { MOVIE_BY_ID } from './graphql/queries';
 import QueryState from './QueryState';
 import { UPDATE_MOVIE } from './graphql/mutations';
+import validate from './validations';
 
 interface UpdateFormProp {
     idOfMovieToUpdate: number;
@@ -50,6 +51,7 @@ const UpdateForm: FC<UpdateFormProp> = ({
                 console.table(values);
                 actions.setSubmitting(false);
             }}
+            validate={validate}
         >
                 {(props) => (
                     <MovieForm {...props} />

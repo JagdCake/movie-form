@@ -7,6 +7,7 @@ import { MOVIE_BY_ID } from './graphql/queries';
 import QueryState from './QueryState';
 import { UPDATE_MOVIE } from './graphql/mutations';
 import validate from './validations';
+import { useState, useEffect } from 'react';
 
 interface UpdateFormProp {
     idOfMovieToUpdate: number;
@@ -16,6 +17,26 @@ const UpdateForm: FC<UpdateFormProp> = ({
     idOfMovieToUpdate,
 }: UpdateFormProp): ReactElement => {
     const [updateMovie] = useMutation(UPDATE_MOVIE);
+    const [formSubmitted, setFormSubmitted] = useState(false);
+
+    useEffect(() => {
+        // prevents warning that React can't perform a state update on
+        // unmounted component
+        // Source: https://stackoverflow.com/questions/53949393/cant-perform-a-react-state-update-on-an-unmounted-component/60907638#60907638
+        let isMounted = true;
+
+        if (isMounted && formSubmitted) {
+            // link to the updated movie in the movie list, in the same
+            // tab; the problem is that you have to manually activate
+            // the URL to actually scroll to the movie
+            window.open(`/movies#${idOfMovieToUpdate}`, '_self');
+        }
+
+        return () => {
+            // effect cleanup
+            isMounted = false;
+        };
+    });
 
     const { loading, error, data } = useQuery(MOVIE_BY_ID, {
         variables: { movieId: idOfMovieToUpdate }

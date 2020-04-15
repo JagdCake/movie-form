@@ -1,10 +1,11 @@
 import React from 'react';
 import { FC, ReactElement } from 'react';
-import { useQuery } from '@apollo/react-hooks';
+import { useQuery, useMutation } from '@apollo/react-hooks';
 import { Formik } from 'formik';
 import MovieForm from './MovieForm';
 import { MOVIE_BY_ID } from './graphql/queries';
 import QueryState from './QueryState';
+import { UPDATE_MOVIE } from './graphql/mutations';
 
 interface UpdateFormProp {
     idOfMovieToUpdate: number;
@@ -13,6 +14,8 @@ interface UpdateFormProp {
 const UpdateForm: FC<UpdateFormProp> = ({
     idOfMovieToUpdate,
 }: UpdateFormProp): ReactElement => {
+    const [updateMovie] = useMutation(UPDATE_MOVIE);
+
     const { loading, error, data } = useQuery(MOVIE_BY_ID, {
         variables: { movieId: idOfMovieToUpdate }
     });

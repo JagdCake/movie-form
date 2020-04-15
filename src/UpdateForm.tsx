@@ -48,7 +48,25 @@ const UpdateForm: FC<UpdateFormProp> = ({
                 }
             }
             onSubmit={(values, actions) => {
-                console.table(values);
+                updateMovie({
+                    variables: {
+                        id: idOfMovieToUpdate,
+                        moviePatch: {
+                            imdbId: values.imdbId,
+                            language: values.language,
+                            title: values.title,
+                            yearOfRelease: values.yearOfRelease,
+                            runtime: values.runtime,
+                            genre: values.genre,
+                            imdbRating: values.imdbRating,
+                            directors: values.directors.split(','),
+                            topActors: values.topActors.split(','),
+                            myRating: values.myRating,
+                            watchedOn: values.watchedOn,
+                            discussion: values.discussion,
+                        }
+                    }
+                });
                 actions.setSubmitting(false);
             }}
             validate={validate}

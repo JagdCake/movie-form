@@ -31,9 +31,9 @@ const MovieIndex: FC = (): ReactElement => {
                         <span role="img" aria-label="link icon"> 🔗</span>
                     </a>
                 </h1>
-                <a href={`#${movie.id}`} className="hidden group-hover:inline">
-                    <span role="img" aria-label="link icon"> 🔗</span>
-                </a>
+                <p className="text-white">
+                    {movie.myRating} watched on <time dateTime={movie.watchedOn}>{movie.watchedOn}</time>
+                </p>
             </li>
         );
     });

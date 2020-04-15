@@ -25,10 +25,15 @@ const UpdateForm: FC<UpdateFormProp> = ({
         return <QueryState stateMessage="Loading movie data." />;
     }
     if (error) {
-        return <QueryState stateMessage={`Error! ${error.message}`} />;
+        return <QueryState stateMessage={`Error! ${error.message}`} displayLinkToGoHome={true} />;
     }
     if (data.movieById === null) {
-        return <QueryState stateMessage={`Error! No data found for movie with ID ${idOfMovieToUpdate}.`} />;
+        return (
+            <QueryState
+                stateMessage={`Error! No data found for movie with ID ${idOfMovieToUpdate}.`}
+                displayLinkToGoHome={true}
+            />
+        );
     }
     const movieToUpdate = data.movieById;
 

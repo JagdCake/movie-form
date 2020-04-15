@@ -34,6 +34,9 @@ const MovieIndex: FC = (): ReactElement => {
                 <p className="text-white">
                     {movie.myRating} watched on <time dateTime={movie.watchedOn}>{movie.watchedOn}</time>
                 </p>
+                <p className="text-white">
+                    Here is a <a href={movie.discussion} className="underline">discussion</a> about it.
+                </p>
             </li>
         );
     });

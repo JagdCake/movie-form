@@ -10,7 +10,7 @@ const Header: FC = (): ReactElement => {
                     <li>
                         <Link
                             to="/movies/add"
-                            className="p-4 rounded-lg bg-red text-black text-center"
+                            className="p-4 rounded-lg bg-white text-black text-center"
                         >
                             Add a movie!
                         </Link>

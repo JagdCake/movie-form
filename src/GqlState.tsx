@@ -2,15 +2,15 @@ import React from 'react';
 import { FC, ReactElement } from 'react';
 import { Link } from 'react-router-dom';
 
-interface QueryStateProps {
+interface GqlStateProps {
     stateMessage: string;
     displayLinkToGoHome?: boolean;
 };
 
-const QueryState: FC<QueryStateProps> = ({
+const GqlState: FC<GqlStateProps> = ({
     stateMessage,
     displayLinkToGoHome = false
-}: QueryStateProps): ReactElement => (
+}: GqlStateProps): ReactElement => (
     <article className="h-screen text-white text-2xl py-64 text-center">
         <h1>{stateMessage}</h1>
         {displayLinkToGoHome === true && (
@@ -19,4 +19,4 @@ const QueryState: FC<QueryStateProps> = ({
     </article>
 );
 
-export default QueryState;
+export default GqlState;

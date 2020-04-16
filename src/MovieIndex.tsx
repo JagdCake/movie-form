@@ -2,17 +2,17 @@ import React from 'react';
 import { FC, ReactElement } from 'react';
 import { useQuery } from '@apollo/react-hooks';
 import { MOVIE_LIST, Movie } from './graphql/queries';
-import QueryState from './QueryState';
+import GqlState from './GqlState';
 import { Link }  from 'react-router-dom';
 
 const MovieIndex: FC = (): ReactElement => {
     const { loading, error, data } = useQuery(MOVIE_LIST);
 
     if (loading) {
-        return <QueryState stateMessage="Loading movie list." />;
+        return <GqlState stateMessage="Loading movie list." />;
     }
     if (error) {
-        return <QueryState stateMessage={`Error! ${error.message}`} />;
+        return <GqlState stateMessage={`Error! ${error.message}`} />;
     }
 
     const movieList: Movie[] = data.allMovies.nodes;

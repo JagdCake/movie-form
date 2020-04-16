@@ -4,7 +4,7 @@ import { useQuery, useMutation } from '@apollo/react-hooks';
 import { Formik } from 'formik';
 import MovieForm from './MovieForm';
 import { MOVIE_BY_ID } from './graphql/queries';
-import QueryState from './QueryState';
+import GqlState from './GqlState';
 import { UPDATE_MOVIE } from './graphql/mutations';
 import validate from './validations';
 import { useState, useEffect } from 'react';
@@ -43,14 +43,14 @@ const UpdateForm: FC<UpdateFormProp> = ({
     });
 
     if (loading) {
-        return <QueryState stateMessage="Loading movie data." />;
+        return <GqlState stateMessage="Loading movie data." />;
     }
     if (error) {
-        return <QueryState stateMessage={`Error! ${error.message}`} displayLinkToGoHome={true} />;
+        return <GqlState stateMessage={`Error! ${error.message}`} displayLinkToGoHome={true} />;
     }
     if (data.movieById === null) {
         return (
-            <QueryState
+            <GqlState
                 stateMessage={`Error! No data found for movie with ID ${idOfMovieToUpdate}.`}
                 displayLinkToGoHome={true}
             />

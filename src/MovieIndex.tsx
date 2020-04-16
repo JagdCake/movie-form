@@ -56,17 +56,21 @@ const MovieIndex: FC = (): ReactElement => {
                     </a>
                 </h1>
                 <p className="text-white">
-                    {movie.myRating} ({movie.imdbRating} on IMDb) watched on
-                    <time dateTime={movie.watchedOn}> {movie.watchedOn}</time>
+                    <span className="text-red">{movie.myRating} </span>
+                    ({movie.imdbRating} on IMDb) watched on
+                    <time dateTime={movie.watchedOn} className="text-red"> {movie.watchedOn}</time>
                 </p>
                 <p className="text-white">
-                    It's in {movie.language}, and the genre is {movie.genre}.
+                    It's in
+                    <span className="text-red"> {movie.language} </span>,
+                    and the genre is
+                    <span className="text-red"> {movie.genre}</span>.
                 </p>
                 <p className="text-white">
-                    Directed by {movie.directors.join(', ')}.
+                    Directed by <span className="text-red">{movie.directors.join(', ')}</span>.
                 </p>
                 <p className="text-white">
-                    Starring {movie.topActors.join(' and ')}.
+                    Starring <span className="text-red">{movie.topActors.join(' and ')}</span>.
                 </p>
                 <p className="text-white">
                     Here is a <a href={movie.discussion} className="underline">discussion</a> about it.

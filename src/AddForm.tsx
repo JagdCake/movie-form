@@ -6,6 +6,7 @@ import { ADD_MOVIE } from './graphql/mutations';
 import validate from './validations';
 import { useState, useEffect } from 'react';
 import MovieForm from './MovieForm';
+import GqlState from './GqlState';
 
 const AddForm: FC = (): ReactElement => {
     const [addMovie] = useMutation(ADD_MOVIE);
@@ -73,7 +74,7 @@ const AddForm: FC = (): ReactElement => {
                         setFormSubmitted(true);
                     }, 500);
                 }).catch((err) => {
-                    console.error(err);
+                    return <GqlState stateMessage={`Error! ${err}`} displayLinkToGoHome={true} />;
                 });
             }}
             validate={validate}

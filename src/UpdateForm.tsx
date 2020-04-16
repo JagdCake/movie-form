@@ -101,7 +101,7 @@ const UpdateForm: FC<UpdateFormProp> = ({
                         setFormSubmitted(true);
                     }, 500);
                 }).catch((err) => {
-                    console.error(err);
+                    return <GqlState stateMessage={`Error! ${err}`} displayLinkToGoHome={true} />;
                 });
             }}
             validate={validate}

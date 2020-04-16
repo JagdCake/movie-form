@@ -29,3 +29,11 @@ export const UPDATE_MOVIE = gql`
          }
     }
 `;
+
+export const DELETE_MOVIE = gql`
+    mutation DeleteMovieById($id: Int!) {
+        deleteMovieById(input: {id: $id}) {
+            deletedMovieId
+        }
+    }
+`;

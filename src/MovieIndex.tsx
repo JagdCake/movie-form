@@ -1,12 +1,14 @@
 import React from 'react';
 import { FC, ReactElement } from 'react';
-import { useQuery } from '@apollo/react-hooks';
+import { useQuery, useMutation } from '@apollo/react-hooks';
 import { MOVIE_LIST, Movie } from './graphql/queries';
+import { DELETE_MOVIE } from './graphql/mutations';
 import GqlState from './GqlState';
 import { Link }  from 'react-router-dom';
 
 const MovieIndex: FC = (): ReactElement => {
     const { loading, error, data } = useQuery(MOVIE_LIST);
+    const [deleteMovieById] = useMutation(DELETE_MOVIE);
 
     if (loading) {
         return <GqlState stateMessage="Loading movie list." />;

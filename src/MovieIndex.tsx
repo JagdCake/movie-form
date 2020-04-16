@@ -72,7 +72,7 @@ const MovieIndex: FC = (): ReactElement => {
                     )}
                     <Link
                         to={`/movies/${movie.id.toString()}/update`}
-                        className="inline-block bg-red my-2 p-2 rounded-lg text-black"
+                        className="inline-block bg-yellow-500 my-2 p-2 rounded-lg text-black"
                     >
                         Edit
                     </Link>

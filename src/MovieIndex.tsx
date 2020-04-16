@@ -6,6 +6,27 @@ import { DELETE_MOVIE } from './graphql/mutations';
 import GqlState from './GqlState';
 import { Link }  from 'react-router-dom';
 
+const deleteMovie = (
+    deleteFunction: Function,
+    movieId: number,
+    movieTitle: string
+): void => {
+    const deleteConfirmed = window.confirm(`Delete movie ${movieTitle}?`);
+
+    if (deleteConfirmed) {
+        deleteFunction({
+            variables: {
+                id: movieId
+            }
+        }).then(() => {
+            // refresh page
+            window.location.reload(true);
+        }).catch((err: Error) => {
+            return <GqlState stateMessage={`Error! ${err}`} displayLinkToGoHome={true} />;
+        });
+    }
+};
+
 const MovieIndex: FC = (): ReactElement => {
     const { loading, error, data } = useQuery(MOVIE_LIST);
     const [deleteMovieById] = useMutation(DELETE_MOVIE);

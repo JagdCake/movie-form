@@ -65,6 +65,8 @@ const MovieIndex: FC = (): ReactElement => {
                 <p className="text-white">
                     Directed by {movie.directors.join(', ')}.
                 </p>
+                <p className="text-white">
+                    Starring {movie.topActors.join(' and ')}.
                 </p>
                 <p className="text-white">
                     Here is a <a href={movie.discussion} className="underline">discussion</a> about it.

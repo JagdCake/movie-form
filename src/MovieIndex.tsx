@@ -60,6 +60,9 @@ const MovieIndex: FC = (): ReactElement => {
                     <time dateTime={movie.watchedOn}> {movie.watchedOn}</time>
                 </p>
                 <p className="text-white">
+                    It's in {movie.language}, and the genre is {movie.genre}.
+                </p>
+                <p className="text-white">
                     Here is a <a href={movie.discussion} className="underline">discussion</a> about it.
                 </p>
                 <div className="w-1/2 flex justify-between">

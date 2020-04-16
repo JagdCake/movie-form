@@ -61,20 +61,22 @@ const MovieIndex: FC = (): ReactElement => {
                 <p className="text-white">
                     Here is a <a href={movie.discussion} className="underline">discussion</a> about it.
                 </p>
-                {movie.id === movieList.length && (
-                    <button
-                        onClick={() => deleteMovie(deleteMovieById, movie.id, movie.title)}
+                <div className="w-1/2 flex justify-between">
+                    {movie.id === movieList.length && (
+                        <button
+                            onClick={() => deleteMovie(deleteMovieById, movie.id, movie.title)}
+                            className="inline-block bg-red my-2 p-2 rounded-lg text-black"
+                        >
+                            Delete
+                        </button>
+                    )}
+                    <Link
+                        to={`/movies/${movie.id.toString()}/update`}
                         className="inline-block bg-red my-2 p-2 rounded-lg text-black"
                     >
-                        Delete
-                    </button>
-                )}
-                <Link
-                    to={`/movies/${movie.id.toString()}/update`}
-                    className="inline-block bg-red my-2 p-2 rounded-lg text-black"
-                >
-                    Edit
-                </Link>
+                        Edit
+                    </Link>
+                </div>
             </li>
         );
     });

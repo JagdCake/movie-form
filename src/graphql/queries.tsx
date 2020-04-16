@@ -8,6 +8,11 @@ export interface Movie {
     myRating: string;
     watchedOn: string;
     discussion: string;
+    imdbRating: number;
+    directors: string[];
+    topActors: [string, string];
+    language: string;
+    genre: string;
 };
 
 export const MOVIE_LIST = gql`
@@ -21,6 +26,11 @@ export const MOVIE_LIST = gql`
                 myRating
                 watchedOn
                 discussion
+                imdbRating
+                directors
+                topActors
+                language
+                genre
             }
         }
     }

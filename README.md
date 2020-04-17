@@ -1,12 +1,13 @@
 ## Movie form for [I watched a Movie!](https://github.com/jagdcake/i-watched-a-movie)
 
-A form to add, update, and delete (not yet) movies from my movie
+A form to add, update, and delete movies from my movie
 database (used to display movies on https://movies.jagdcake.com).
 
 - meant solely for local use
 - displays a list of all movies
 - displays link to an add form
 - displays links to an update form for each movie
+- displays button to delete the last movie
 - uses [Formik](https://jaredpalmer.com/formik/) to build the form
 - uses [PostGraphile](https://www.graphile.org/postgraphile/) to create
   a GraphQL API server pointing at a PostgreSQL database

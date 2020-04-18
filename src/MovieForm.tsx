@@ -14,7 +14,7 @@ const ErrorMessage: FC<ErrorMessageProps> = ({
 }: ErrorMessageProps): ReactElement | null => {
     if (display) {
         return (
-            <p className="w-48 text-red p-4">{message}</p>
+            <p className="text-red p-4">{message}</p>
         );
     }
 

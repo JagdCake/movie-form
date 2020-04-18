@@ -6,10 +6,12 @@
 
 @tailwind utilities;
 
-form :not(button) {
+form input,
+form select {
     padding: 0.4rem;
 }
 
-form :not(button):focus {
+form input:focus,
+form select:focus {
     padding: 0.6rem;
 }

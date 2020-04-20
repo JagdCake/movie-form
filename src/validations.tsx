@@ -27,7 +27,13 @@ const wrongCommaSeparatedFormat = (fieldValue: string): boolean => {
 };
 
 const maxThreeDirectors = (directors: string): string => {
-    // not good, but will have to do for now
+    if (wrongCommaSeparatedFormat(directors)) {
+        return 'Wrong format:'
+            + ' Value must start and end with word characters (letters / digits).'
+            + ' Note: spaces are non-word characters,'
+            + ' and a comma followed by a space is not allowed.';
+    }
+
     const commas = /,/g;
     const error = 'Too many names: You can enter 3 at most.';
 
@@ -40,6 +46,13 @@ const maxThreeDirectors = (directors: string): string => {
 };
 
 const maxTwoActors = (actors: string): string => {
+    if (wrongCommaSeparatedFormat(actors)) {
+        return 'Wrong format:'
+            + ' Value must start and end with word characters (letters / digits).'
+            + ' Note: spaces are non-word characters,'
+            + ' and a comma followed by a space is not allowed.';
+    }
+
     const commas = /,/g;
     const errorTooFew = 'Too few names: You must enter 2 names.';
     const errorTooMany = 'Too many names: You can enter two at most.';

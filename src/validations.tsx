@@ -11,6 +11,21 @@ const imdbIdFormat = (imdbId: string): string => {
     return '';
 };
 
+const wrongCommaSeparatedFormat = (fieldValue: string): boolean => {
+    // format is wrong if it starts / ends with non-word characters, or
+    // if it contains 2 or more non-word characters in a row (a comma
+    // followed by a space is wrong)
+    const wrongFormat = /^\W|\W$|\W{2,}/g;
+
+    const wrongCommaSeparatedFormat = wrongFormat.test(fieldValue);
+
+    if (wrongCommaSeparatedFormat) {
+        return true
+    }
+
+    return false;
+};
+
 const maxThreeDirectors = (directors: string): string => {
     // not good, but will have to do for now
     const commas = /,/g;

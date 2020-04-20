@@ -224,14 +224,17 @@ const MovieForm: FC<MovieFormProps> = ({
                 required={true}
             />
 
-            <button
-                className="block text-black my-12 p-2 mx-auto rounded-lg bg-red transform hover:scale-125 focus:scale-125"
-                type="submit"
-                disabled={isSubmitting}
-            >
-                Submit
-            </button>
-            <Link to="/movies" className="text-4xl text-white">&larr; Go back</Link>
+            <div className="my-12">
+                <button
+                    className="block text-black p-2 mx-auto rounded-lg bg-red transform hover:scale-125 focus:scale-125"
+                    type="submit"
+                    disabled={isSubmitting}
+                >
+                    Submit
+                </button>
+                <FormLevelErrorMessage />
+            </div>
+        <Link to="/movies" className="text-4xl text-white">&larr; Go back</Link>
         </form>
     );
 };

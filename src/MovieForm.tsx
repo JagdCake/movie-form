@@ -46,6 +46,22 @@ const MovieForm: FC<MovieFormProps> = ({
     touched,
     isSubmitting
 }: MovieFormProps): ReactElement => {
+    const FormLevelErrorMessage = (): ReactElement | null => {
+        const anyFieldIsTouched: boolean = Object.values(touched).some((possiblyTouchedField) => possiblyTouchedField === true);
+        const anyValidationErrors: boolean = Object.values(errors).some((error) => error !== '');
+
+        if (anyFieldIsTouched && anyValidationErrors) {
+            return (
+                <ErrorMessage
+                    message="There are errors in the form. Scroll up and fix them."
+                    display={true}
+                />
+            );
+        }
+
+        return null;
+    };
+
     return (
         <form onSubmit={handleSubmit} className="w-3/5 m-auto text-lg py-8">
             <label className="block text-white pt-6" htmlFor="imdbId">IMDb ID</label>

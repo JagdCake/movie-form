@@ -226,7 +226,7 @@ const MovieForm: FC<MovieFormProps> = ({
 
             <div className="my-12">
                 <button
-                    className="block text-black p-2 mx-auto rounded-lg bg-red transform hover:scale-125 focus:scale-125"
+                    className="block text-black p-2 w-full bg-red transform hover:scale-125 focus:scale-125 border-2"
                     type="submit"
                     disabled={isSubmitting}
                 >

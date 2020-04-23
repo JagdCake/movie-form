@@ -1,6 +1,7 @@
 import React from 'react';
-import { render } from '@testing-library/react';
+import { render, fireEvent } from '@testing-library/react';
 import App from './App';
+import { MockedProvider } from '@apollo/react-testing';
 import { MOVIE_LIST } from './graphql/queries';
 
 const mocks = [
@@ -32,3 +33,22 @@ const mocks = [
         }
     }
 ];
+
+describe('App', () => {
+    it('has a link that leads to a movie add form', () => {
+        const { getByText, container } = render(
+            <MockedProvider mocks={mocks} addTypename={false}>
+                <App />
+            </MockedProvider>
+        );
+
+        const movieAddFormLink = getByText(/add a movie/i);
+        fireEvent.click(movieAddFormLink);
+
+        const emptyFormField = container.querySelector('#imdbId');
+        expect(emptyFormField).toBeEmpty();
+
+        const formFieldWithDefaultValue = container.querySelector('#language') as HTMLInputElement;
+        expect(formFieldWithDefaultValue.value).toMatch(/english/i);
+    });
+});

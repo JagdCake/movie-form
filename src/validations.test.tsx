@@ -51,5 +51,11 @@ describe('Validation function', () => {
             twoOrMoreIncorrectCharacters.directors = 'Name, Name 2';
             expect(validate(twoOrMoreIncorrectCharacters).directors).toBeTruthy();
         });
+
+        it(`directors value contains more than 3 comma-separated names`, () => {
+            const tooManyNames = validFormValues;
+            tooManyNames.directors = 'Name,Name 2,Name 3,Name 4';
+            expect(validate(tooManyNames).directors).toBeTruthy();
+        });
     });
 });

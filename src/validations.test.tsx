@@ -21,5 +21,13 @@ describe('Validation function', () => {
             const validationErrors = validate(tooLongID);
             expect(validationErrors.imdbId).toBeTruthy();
         });
+
+        it('IMDb ID has less than 7 digits', () => {
+            const tooShortID = validFormValues;
+            tooShortID.imdbId = 'tt000000';
+
+            const validationErrors = validate(tooShortID);
+            expect(validationErrors.imdbId).toBeTruthy();
+        });
     });
 });

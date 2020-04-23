@@ -12,4 +12,14 @@ describe('Validation function', () => {
         const noValidationErrors = validate(validFormValues);
         expect(noValidationErrors).toEqual({});
     });
+
+    describe('should return error messsage if', () => {
+        it('IMDb ID has more than 8 digits', () => {
+            const tooLongID = validFormValues;
+            tooLongID.imdbId = 'tt000000000';
+
+            const validationErrors = validate(tooLongID);
+            expect(validationErrors.imdbId).toBeTruthy();
+        });
+    });
 });

@@ -57,5 +57,11 @@ describe('Validation function', () => {
             tooManyNames.directors = 'Name,Name 2,Name 3,Name 4';
             expect(validate(tooManyNames).directors).toBeTruthy();
         });
+
+        it(`actors value contains more than 2 comma-separated names`, () => {
+            const tooManyNames = validFormValues;
+            tooManyNames.topActors = 'Name,Name 2,Name 3';
+            expect(validate(tooManyNames).topActors).toBeTruthy();
+        });
     });
 });

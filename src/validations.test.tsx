@@ -35,5 +35,15 @@ describe('Validation function', () => {
             incorrectStartCharacters.imdbId = 'rr0000000';
             expect(validate(incorrectStartCharacters).imdbId).toBeTruthy();
         });
+
+        it(`directors/actors value doesn't start/end with letters/digits`, () => {
+            const incorrectStartCharacter = validFormValues;
+            incorrectStartCharacter.directors = ',Name Name';
+            expect(validate(incorrectStartCharacter).directors).toBeTruthy();
+
+            const incorrectEndCharacter = validFormValues;
+            incorrectEndCharacter.topActors = 'Name Name,';
+            expect(validate(incorrectEndCharacter).topActors).toBeTruthy();
+        });
     });
 });

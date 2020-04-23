@@ -63,5 +63,11 @@ describe('Validation function', () => {
             tooManyNames.topActors = 'Name,Name 2,Name 3';
             expect(validate(tooManyNames).topActors).toBeTruthy();
         });
+
+        it(`actors value contains fewer than 2 comma-separated names`, () => {
+            const tooManyNames = validFormValues;
+            tooManyNames.topActors = 'Name';
+            expect(validate(tooManyNames).topActors).toBeTruthy();
+        });
     });
 });

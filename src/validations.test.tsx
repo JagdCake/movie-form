@@ -29,5 +29,11 @@ describe('Validation function', () => {
             const validationErrors = validate(tooShortID);
             expect(validationErrors.imdbId).toBeTruthy();
         });
+
+        it(`IMDb ID doesn't start with "tt"`, () => {
+            const incorrectStartCharacters = validFormValues;
+            incorrectStartCharacters.imdbId = 'rr0000000';
+            expect(validate(incorrectStartCharacters).imdbId).toBeTruthy();
+        });
     });
 });

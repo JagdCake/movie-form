@@ -45,5 +45,11 @@ describe('Validation function', () => {
             incorrectEndCharacter.topActors = 'Name Name,';
             expect(validate(incorrectEndCharacter).topActors).toBeTruthy();
         });
+
+        it(`directors/actors value contains 2 or more non-word characters in a row`, () => {
+            const twoOrMoreIncorrectCharacters = validFormValues;
+            twoOrMoreIncorrectCharacters.directors = 'Name, Name 2';
+            expect(validate(twoOrMoreIncorrectCharacters).directors).toBeTruthy();
+        });
     });
 });

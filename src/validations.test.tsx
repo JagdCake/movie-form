@@ -36,20 +36,24 @@ describe('Validation function', () => {
             expect(validate(incorrectStartCharacters).imdbId).toBeTruthy();
         });
 
-        it(`directors/actors value doesn't start/end with letters/digits`, () => {
+        it(`directors/actors value starts/ends with comma/space`, () => {
             const incorrectStartCharacter = validFormValues;
             incorrectStartCharacter.directors = ',Name Name';
             expect(validate(incorrectStartCharacter).directors).toBeTruthy();
 
             const incorrectEndCharacter = validFormValues;
-            incorrectEndCharacter.topActors = 'Name Name,';
+            incorrectEndCharacter.topActors = 'Name Name ';
             expect(validate(incorrectEndCharacter).topActors).toBeTruthy();
         });
 
-        it(`directors/actors value contains 2 or more non-word characters in a row`, () => {
-            const twoOrMoreIncorrectCharacters = validFormValues;
-            twoOrMoreIncorrectCharacters.directors = 'Name, Name 2';
-            expect(validate(twoOrMoreIncorrectCharacters).directors).toBeTruthy();
+        it(`directors/actors value contains 2 or more commas/spaces in a row`, () => {
+            const twoCommas = validFormValues;
+            twoCommas.directors = 'Name,,Name 2';
+            expect(validate(twoCommas).directors).toBeTruthy();
+
+            const twoSpaces = validFormValues;
+            twoSpaces.directors = 'Name  Name';
+            expect(validate(twoSpaces).directors).toBeTruthy();
         });
 
         it(`directors value contains more than 3 comma-separated names`, () => {

@@ -12,15 +12,14 @@ const imdbIdFormat = (imdbId: string): string => {
 };
 
 const wrongCommaSeparatedFormat = (fieldValue: string): boolean => {
-    // format is wrong if it starts / ends with non-word characters, or
-    // if it contains 2 or more non-word characters in a row (a comma
-    // followed by a space is wrong)
-    const wrongFormat = /^\W|\W$|\W{2,}/g;
+    // format is wrong if it starts / ends with commas / spaces, or
+    // if it contains 2 or more commas / spaces in a row
+    const wrongFormat = /^,|,$|^\s|\s$|,{2,}|\s{2,}/g;
 
     const wrongCommaSeparatedFormat = wrongFormat.test(fieldValue);
 
     if (wrongCommaSeparatedFormat) {
-        return true
+        return true;
     }
 
     return false;
@@ -30,8 +29,7 @@ const maxThreeDirectors = (directors: string): string => {
     if (wrongCommaSeparatedFormat(directors)) {
         return 'Wrong format:'
             + ' Value must start and end with word characters (letters / digits).'
-            + ' Note: spaces are non-word characters,'
-            + ' and a comma followed by a space is not allowed.';
+            + ' Note: spaces are non-word characters.'
     }
 
     const commas = /,/g;
@@ -49,8 +47,7 @@ const maxTwoActors = (actors: string): string => {
     if (wrongCommaSeparatedFormat(actors)) {
         return 'Wrong format:'
             + ' Value must start and end with word characters (letters / digits).'
-            + ' Note: spaces are non-word characters,'
-            + ' and a comma followed by a space is not allowed.';
+            + ' Note: spaces are non-word characters.'
     }
 
     const commas = /,/g;

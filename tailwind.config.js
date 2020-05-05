@@ -11,6 +11,6 @@ module.exports = {
   },
   plugins: [],
   purge: {
-      content: ['./src/**/*.tsx'],
+      content: ['./public/index.html', './src/**/*.tsx'],
   },
 }

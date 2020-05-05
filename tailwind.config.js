@@ -11,6 +11,14 @@ module.exports = {
   },
   plugins: [],
   purge: {
-      content: ['./public/index.html', './src/**/*.tsx'],
+    // Filenames to scan for classes
+    content: [
+      './src/**/*.html',
+      './src/**/*.js',
+      './src/**/*.jsx',
+      './src/**/*.ts',
+      './src/**/*.tsx',
+      './public/index.html',
+    ],
   },
 }

@@ -38,6 +38,7 @@
     "react-scripts:build": "react-scripts build",
     "start-gql-server": "npx postgraphile -c postgres://postgres:@localhost/movies --watch -o",
     "start-build-server": "sleep 10 && http-server build/ -o",
+    "add-movie": "run-p start-gql-server start-build-server"
   },
   "eslintConfig": {
     "extends": "react-app"

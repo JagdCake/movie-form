@@ -56,24 +56,31 @@ const MovieIndex: FC = (): ReactElement => {
                     </a>
                 </h1>
                 <p className="text-white">
-                    <span className="text-red">{movie.myRating} </span>
-                    ({movie.imdbRating} on IMDb) watched on
-                    <time dateTime={movie.watchedOn} className="text-red"> {movie.watchedOn}</time>
+                    <span className="text-red">{movie.myRating}</span>
+                    <span> ({movie.imdbRating} on IMDb) watched on </span>
+                    <time dateTime={movie.watchedOn} className="text-red">{movie.watchedOn}</time>
+                    <span>.</span>
                 </p>
                 <p className="text-white">
-                    It's in
-                    <span className="text-red"> {movie.language} </span>,
-                    and the genre is
-                    <span className="text-red"> {movie.genre}</span>.
+                    <span>It's in </span>
+                    <span className="text-red">{movie.language}</span>
+                    <span>, and the genre is </span>
+                    <span className="text-red">{movie.genre}</span>.
                 </p>
                 <p className="text-white">
-                    Directed by <span className="text-red">{movie.directors.join(', ')}</span>.
+                    <span>Directed by </span>
+                    <span className="text-red">{movie.directors.join(', ')}</span>
+                    <span>.</span>
                 </p>
                 <p className="text-white">
-                    Starring <span className="text-red">{movie.topActors.join(' and ')}</span>.
+                    <span>Starring </span>
+                    <span className="text-red">{movie.topActors.join(' and ')}</span>
+                    <span>.</span>
                 </p>
                 <p className="text-white">
-                    Here is a <a href={movie.discussion} className="underline">discussion</a> about it.
+                    <span>Here is a </span>
+                    <a href={movie.discussion} className="underline"> discussion </a>
+                    <span>about it.</span>
                 </p>
                 <div className="w-1/2 flex justify-between">
                     {movie.id === movieList.length && (

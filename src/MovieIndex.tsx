@@ -79,8 +79,8 @@ const MovieIndex: FC = (): ReactElement => {
                 </p>
                 <p className="text-white">
                     <span>Here is a </span>
-                    <a href={movie.discussion} className="underline"> discussion </a>
-                    <span>about it.</span>
+                    <a href={movie.discussion} className="underline">discussion</a>
+                    <span> about it.</span>
                 </p>
                 <div className="w-1/2 flex justify-between">
                     {movie.id === movieList.length && (
